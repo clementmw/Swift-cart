@@ -6,4 +6,7 @@ def zero_fuel(distance_to_pump, mpg, fuel_left):
         return False
 
 print(zero_fuel(34,20,2))
+
+#alternate method
+
    
