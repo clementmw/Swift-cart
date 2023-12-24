@@ -12,21 +12,22 @@ function Fetch() {
     //console.log(products)
 
     const productList  = products.map ((product)=>{
-        return <GetProduct 
-        key={product.id}
+        return <div key={product.id} className='w-1/3 p-4'>
+          <GetProduct 
         name = {product.name}
         price = {product.price}
         description = {product.description}
         image = {product.images[0]}  
         />
+          </div>
 
     })
   return (
-    <>
+    <div className='flex flex-wrap justify-center '>
     {productList}
     
     
-    </>
+    </div>
   )
 }
 

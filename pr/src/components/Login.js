@@ -1,20 +1,25 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from './AuthContext';
+import backgroundImage from '../image/86389.jpg';
 
 
 function Login() {
+  const navigate = useNavigate();
+  const {login} = useAuth();
+  const user1 = {
+    username: 'cashier',
+    password: 'cashier',
+  }
+  const user2 = {
+    username: 'admin',
+    password: 'admin'
+  }
   const[formData, setFormData] = useState({
     username: '',
     password:'',
   })
-    const handleSubmit  = (e)=>{
-      e.preventDefault();
-        //to clear the form
-      setFormData({
-        username: '',
-        password:'',
-    })
-        
-    }
+    
     const handleChange = (e)=>{
       setFormData ({
         ...formData,
@@ -23,13 +28,47 @@ function Login() {
     }
     console.log(formData)
 
+    const handleLogin = (e) => {
+      e.preventDefault();
+      const { username, password } = formData;
+    
+      // Check if the entered username and password match either user1 or user2
+      if (
+        (username === user1.username && password === user1.password) ||
+        (username === user2.username && password === user2.password)
+      ) {
+        alert(username + " logged in successfully");
+        login();
+        navigate("/product");
+      } else {
+        alert("Invalid username or password");
+      }
+    
+      // to clear form
+      setFormData({
+        username: '',
+        password: '',
+      });
+    };
+    
   
 
 
   return (
-    <div className='flex items-center  justify-center h-screen'>
-    <form onSubmit={handleSubmit} 
-      className='bg-white shadow-md rounded px-8 pt-4 pb-8 mb-4'>
+    
+    <div className='flex items-center  justify-center h-screen'
+       style={{
+         backgroundImage:`url(${backgroundImage})`,
+         backgroundSize: 'cover',
+         backgroundPosition: 'center',
+         backgroundAttachment: 'fixed',
+
+
+        }}
+    
+    >
+    <form onSubmit={handleLogin} 
+      className='bg-slate-200 shadow-md rounded px-8 pt-4 pb-8 mb-4'>
       <div>
         <img className='w-20 h-20 rounded-full mx-auto' 
         src='https://media.istockphoto.com/id/1316420668/vector/user-icon-human-person-symbol-social-profile-icon-avatar-login-sign-web-user-symbol.jpg?s=612x612&w=0&k=20&c=AhqW2ssX8EeI2IYFm6-ASQ7rfeBWfrFFV4E87SaFhJE=' 
