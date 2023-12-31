@@ -6,11 +6,12 @@ import Login from './components/Login';
 import { useAuth } from './components/AuthContext';
 
 
+
 function App() {
   const { isLoggedIn} = useAuth();
   return (
       <>
-    
+   
     <Routes>
     <Route path="/" element={<Login/>}></Route>
     <Route path="/product" element={ isLoggedIn ? <Fetch/> : <Navigate to = "/"/>}></Route> 
