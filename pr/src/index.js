@@ -8,7 +8,7 @@ import { AuthProvider } from './components/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <BrowserRouter>
+    <BrowserRouter basename = "my-repository">
         <AuthProvider>
             <App />
         </AuthProvider>
