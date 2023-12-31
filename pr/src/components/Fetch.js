@@ -50,10 +50,13 @@ function Fetch() {
   ));
 
   return (
+    <>
+    <Search onsearch={handleSearch}/>
     <div className='flex flex-wrap justify-center'>
-      <Search onsearch={handleSearch} />
+     
       {productList}
     </div>
+    </>
   );
 }
 
