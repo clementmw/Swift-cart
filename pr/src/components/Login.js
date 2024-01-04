@@ -26,7 +26,7 @@ function Login() {
         [e.target.name]:e.target.value,
       });
     }
-    console.log(formData)
+    
 
     const handleLogin = (e) => {
       e.preventDefault();
@@ -80,7 +80,7 @@ function Login() {
           <input id='username'
           type = 'text' 
           name = 'username' 
-          placeholder=' Enter username' 
+          placeholder=' Enter username: admin ' 
           value={formData.username} 
           onChange={handleChange}
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -95,7 +95,7 @@ function Login() {
          id = 'password' 
          type = 'password' 
          name = 'password' 
-         placeholder=' Enter password' 
+         placeholder='admin' 
          value={formData.password} 
          onChange={handleChange}
          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

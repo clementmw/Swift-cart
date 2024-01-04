@@ -9,11 +9,11 @@ export const AuthProvider = ({ children }) => {
   useEffect (()=> {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
-      console.log("user is logged in:", storedUser)
+      //console.log("user is logged in:", storedUser)
       setLoggedIn(true);
     }
     else{
-      console.log("user is not logged in")
+     // console.log("user is not logged in")
     }
   },[]);
 
