@@ -4,6 +4,7 @@ import {  Routes,Route, Navigate } from 'react-router-dom';
 import Fetch from './components/Fetch';
 import Login from './components/Login';
 import { useAuth } from './components/AuthContext';
+import Cookie from './pages/Cookie';
 
 
 
@@ -14,7 +15,8 @@ function App() {
    
     <Routes>
     <Route path="/" element={<Login/>}></Route>
-    <Route path="/product" element={ isLoggedIn ? <Fetch/> : <Navigate to = "/"/>}></Route> 
+    <Route path="/product" element={ isLoggedIn ? <Fetch/> : <Navigate to = "/"/>}></Route>
+    <Route path = "/cookie" element = {<Cookie/>}></Route> 
     
     </Routes>
     </>
