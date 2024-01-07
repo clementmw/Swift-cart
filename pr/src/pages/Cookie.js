@@ -1,13 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 
 
 
 function Cookie() {
+  const [isVisible, setIsVisible] = useState(true);
+  
+  const handleClick  = (e)=>{
+    e.preventDefault();
+
+  }
+  const toggle = ()=>{
+    setIsVisible((isVisible) => !isVisible) // at first its visible (true) else its false not visible 
+  }
+  
+
   return (
+    <div className='bg-slate-200'>
+
+      {isVisible ? // if true it shows the whole div 
+    <div className='flex items-centre justify-center py-5'>
+      
+        <form className='bg-blue-600 rounded-2xl flex items-centre w-1/2 py-4 '> 
+          <div> 
+            <p className='text-white text-center'>  We are now part of Saleforce. <Link to="#" className='hover:underline'>Learn why we're even better together</Link></p>
+          </div>
+          <div className='ml-auto'>
+          <button onClick= {toggle}  className='rounded-full w-7 h-7 ml-auto bg-white'>x</button>
+          </div>
+        </form>
+      </div>
+      // if false it hides the whole div
+       : null} 
+  
     <div className='flex items-center justify-center h-screen'>
-      <form className='bg-slate-200 shadow-md rounded px-8 pt-4 pb-8 w-96'>
+      
+      <form onSubmit={handleClick} className='bg-white shadow-md rounded px-8 pt-4 pb-8 w-96'>
         <div>
           <img
             className='w-20 h-20 rounded-full mx-auto mb-4'
@@ -25,13 +54,13 @@ function Cookie() {
 
         <div className='flex items-center justify-center'>
           <button
-            className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2'
+            className='bg-white hover:bg-stone-100 text-cyan-400 font-bold py-1 px-1 rounded mr-2'
             type='submit'
             value='submit'
           >
             Accept All Cookies
           </button>
-          <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2'>
+          <button className='bg-white hover:bg-stone-100 text-cyan-400 font-bold py-1 px-1 rounded ml-2'>
             Decline Cookie
           </button>
         </div>
@@ -39,6 +68,8 @@ function Cookie() {
           <Link to="">Cookie Setting</Link>
         </div>
       </form>
+    </div>
+
     </div>
   );
 }
